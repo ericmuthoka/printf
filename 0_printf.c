@@ -1,5 +1,3 @@
-#include <stdarg.h>
-#include <stdio.h>
 #include "main.h"
 /**
  * _printf - a function that produces output according to a format
@@ -10,8 +8,7 @@ int _printf(const char *format, ...)
 {
 	int count = 0; /*count of characters printed*/
 	va_list args;
-	char *s;
-	char c;
+	char *s, c;
 
 	va_start(args, format);
 	while (*format != '\0')
@@ -42,7 +39,6 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				/* unsupported conversion specifier */
 				return (-1);
 			}
 		}
