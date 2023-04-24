@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdarg.h>
 /**
  * _printf - a function that produces output according to a format
  * @format: character string
@@ -9,11 +7,9 @@ int _printf(const char *format, ...)
 {
 	int count = 0; /*count of characters printed*/
 	va_list args;
-	char *s;
-	char c;
+	char *s, c;
 
 	va_start(args, format);
-
 	while (*format != '\0')
 	{
 		if (*format == '%')
