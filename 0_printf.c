@@ -7,7 +7,8 @@ int _printf(const char *format, ...)
 {
 	int count = 0; /*count of characters printed*/
 	va_list args;
-	char *s, c;
+	char *s;
+	char c;
 
 	va_start(args, format);
 	while (*format != '\0')
