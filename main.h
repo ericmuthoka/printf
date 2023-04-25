@@ -16,6 +16,7 @@ typedef struct fmt
 	char *sym;
 	int (*fn)(va_list);
 } fmt_t;
+int print_custom_string(char *s);
 int _printf(const char *format, ...);
 int (*get_print(const char *format))(va_list);
 int print_char(va_list list);

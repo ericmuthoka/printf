@@ -60,5 +60,32 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+/**
+ * print_custom_string - a helper function that prints a str
+ * @s: string to print
+ * Return: number of characters printed
+ */
+int print_custom_string(char *s)
+{
+	int count = 0;
+
+	if (s == NULL)
+		s = "(null)";
+
+	while (*s != '\0')
+	{
+		if (*s < 32 || *s >= 127)
+		{
+			count += printf("\\x%02X", *s);
+		}
+		else
+		{
+			count += printf("%c", *s);
+		}
+		s++;
+	}
+
+	return (count);
+}
 
 
