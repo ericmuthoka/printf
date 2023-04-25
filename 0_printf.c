@@ -30,6 +30,18 @@ int _printf(const char *format, ...)
 				case 'i':
 					count += printf("%d", va_arg(args, int));
 					break;
+				case 'u':
+					count += printf("%u", va_arg(args, unsigned int));
+					break;
+				case 'o':
+					count += printf("%o", va_arg(args, unsigned int));
+					break;
+				case 'x':
+					count += printf("%x", va_arg(args, unsigned int));
+					break;
+				case 'X':
+					count += printf("%X", va_arg(args, unsigned int));
+					break;
 				default:
 					printf("Invalid format specifier");
 					return (-1);
