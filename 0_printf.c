@@ -42,6 +42,9 @@ int _printf(const char *format, ...)
 				case 'X':
 					count += printf("%X", va_arg(args, unsigned int));
 					break;
+				case 'p':
+					count += printf("%p", va_arg(args, void *));
+					break;
 				case 'S':
 					count += print_custom_string(va_arg(args, char *));
 					break;
