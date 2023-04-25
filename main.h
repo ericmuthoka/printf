@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdio.h>
 
 /**
  * struct fmt - Struct for formatting data
