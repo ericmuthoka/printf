@@ -6,50 +6,43 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0; /*count of characters printed*/
+	int count = 0;
 	va_list args;
-	char *s, c;
 
 	va_start(args, format);
 	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
-			format++; /*move past the '%' */
-			if (*format == 'c')
+			format++;
+			switch (*format)
 			{
-				c = va_arg(args, int);
-				putchar(c);
-				count++;
-			}
-			else if (*format == 's')
-			{
-				s = va_arg(args, char *);
-				while (*s != '\0')
-				{
-					putchar(*s);
-					s++;
-					count++;
-				}
-			}
-			else if (*format == '%')
-			{
-				putchar('%');
-				count++;
-			}
-			else
-			{
-				return (-1);
+				case 'c':
+					count += printf("%c", va_arg(args, int));
+					break;
+				case 's':
+					count += printf("%s", va_arg(args, char *));
+					break;
+				case '%':
+					count += printf("%%");
+					break;
+				case 'd':
+				case 'i':
+					count += printf("%d", va_arg(args, int));
+					break;
+				default:
+					printf("Invalid format specifier");
+					return (-1);
 			}
 		}
 		else
 		{
-			putchar(*format);
-			count++;
+			count += printf("%c", *format);
 		}
 		format++;
 	}
-	va_end(args); /*end variable arguments*/
+
+	va_end(args);
 	return (count);
 }
 
